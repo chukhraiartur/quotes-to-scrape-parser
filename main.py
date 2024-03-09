@@ -45,11 +45,9 @@ def parse(response: Response, headers: dict) -> list[dict]:
         next_button: str = selector.css('.pager .next a::attr(href)').get()
         if next_button:
             url = 'https://quotes.toscrape.com' + next_button
-            print(url)
             response: Response = requests.get(url=url, headers=headers)
         else:
             break
-
 
     return data
 
@@ -65,4 +63,3 @@ save_to_html(response=response, filename='quotes')
 
 quotes_to_scrape_data: list[dict] = parse(response, headers)
 print(json.dumps(quotes_to_scrape_data, indent=2, ensure_ascii=False))
-print(len(quotes_to_scrape_data))
