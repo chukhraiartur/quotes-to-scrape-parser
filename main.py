@@ -1,6 +1,5 @@
-# pip install requests parsel lxml
+# pip install requests parsel
 import requests
-import lxml
 import json
 from parsel import Selector, SelectorList
 from requests import Response
